@@ -15,8 +15,8 @@ from a screenshot, from HTML, or from a web address, which you open in the brows
 screenshot first. You do not need to know how any of it works inside. You describe what you
 want in the shape the tools ask for, and the plugin builds it.
 
-If you cannot see any BeaverForge tools at all, the connection is not set up yet. Follow the
-connect-my-site skill.
+If you cannot see any BeaverForge tools at all, the connection is not set up yet. Give the
+person the three steps under "Connecting your site" below and stop.
 
 ## Order of operations
 
@@ -74,6 +74,33 @@ and your edits appear on their canvas within seconds rather than on the public a
 "The tool returned success" is not verification. Reading the layout back is not verification
 either. Seeing it is.
 
+## Connecting your site
+
+This is a one-time setup the person does themselves, outside this project. Already connected
+it? Skip this step.
+
+**1. Get your address and your key.**
+In WordPress admin, open the **BeaverForge AI** menu. On the page headed **BeaverForge AI
+Settings**, find the **MCP Server** section. Tick **Enable MCP endpoint** and copy the
+**Endpoint URL**. Then under **Your key**, type a label (for example "Claude Code, work
+laptop"), press **Create key**, and copy the key straight away, because it is shown only once.
+
+**2. Run this one command in a terminal**, once, with your own address and your own key in
+place of the two placeholders. It works in every folder afterwards.
+
+```bash
+claude mcp add beaverforge --scope user -- npx -y mcp-remote@latest https://your-site.com/wp-json/beaverforge-ai/v1/mcp --header "Authorization:Bearer bfai_your_key" --transport http-only
+```
+
+**3. Restart Claude Code.** Fully quit and reopen it. A reload is not enough.
+
+Claude Desktop takes the same address and the same key, put into the desktop app's own MCP
+settings instead.
+
+**The rule for Claude:** if the BeaverForge tools are not available, tell the person those
+three steps and stop. Never ask for their key, never write or edit a configuration file for
+them, and never try to connect by any other means. If the tools are available, carry on.
+
 ## Handy starting points
 
 - `list_pages` to see what exists, `list_unbuilt_pages` for older pages not yet built with
@@ -89,8 +116,6 @@ either. Seeing it is.
 
 Use these recipes rather than improvising:
 
-- **connect-my-site** when the BeaverForge tools are missing, or they ask to set up the
-  connection.
 - **set-up-my-brand** when there is no Style Guide yet.
 - **build-a-page** for a new page from a description.
 - **copy-a-design** when they hand you a screenshot, HTML, or a web address.

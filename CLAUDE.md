@@ -66,63 +66,32 @@ and your edits appear on their canvas within seconds rather than on the public a
 "The tool returned success" is not verification. Reading the layout back is not verification
 either. Seeing it is.
 
-## Setting up the connection
+## Connecting your site
 
-**Check whether it is already connected before you offer any of this.** When they ask you to
-set up the BeaverForge connection, call `list_pages` first. If it returns a list of their
-pages, the connection already exists: say so in one line, name a couple of the pages so they
-know it is their site, and stop. Do not touch any configuration file and do not ask for a key.
-If it refuses with a reason, such as an inactive licence or a key that is not valid, the
-connection exists and the site is turning it down: pass the reason on and stop, because setting
-it up again will not fix a refusal. Only when there are no BeaverForge tools at all do you go
-on to the steps below. The connect-my-site skill is the full recipe.
+This is a one-time setup the person does themselves, outside this project. Already connected
+it? Skip this step.
 
-Talk the person through this one step at a time and wait after each step.
+**1. Get your address and your key.**
+In WordPress admin, open the **BeaverForge AI** menu. On the page headed **BeaverForge AI
+Settings**, find the **MCP Server** section. Tick **Enable MCP endpoint** and copy the
+**Endpoint URL**. Then under **Your key**, type a label (for example "Claude Code, work
+laptop"), press **Create key**, and copy the key straight away, because it is shown only once.
 
-**1. Switch the server on.**
-In WordPress admin: open the **BeaverForge AI** menu, and on the page headed **BeaverForge AI
-Settings** find the **MCP Server** section, then tick **Enable MCP endpoint**. Ask them to
-copy the **Endpoint URL** shown just below it. It looks like
-`https://their-site.com/wp-json/beaverforge-ai/v1/mcp`. If there is no **MCP Server** section
-on that page, the licence is not active yet.
+**2. Run this one command in a terminal**, once, with your own address and your own key in
+place of the two placeholders. It works in every folder afterwards.
 
-**2. Create a key.**
-On the same screen, under **Your key**: type a **Label** (for example "Claude Code, work
-laptop"), leave **Expiry** blank unless they want one, press **Create key**. The key is shown
-once, so tell them to copy it now. It starts with `bfai_`.
+```bash
+claude mcp add beaverforge --scope user -- npx -y mcp-remote@latest https://your-site.com/wp-json/beaverforge-ai/v1/mcp --header "Authorization:Bearer bfai_your_key" --transport http-only
+```
 
-**3. Fill in the connection file.**
-This step is for the cloned folder. If they installed the BeaverForge plugin for Claude Code
-instead, the connection is already declared for them and reads two environment variables they
-set once in their shell profile, `BFAI_MCP_URL` and `BFAI_MCP_KEY`: the connect-my-site skill
-has the exact lines.
+**3. Restart Claude Code.** Fully quit and reopen it. A reload is not enough.
 
-Copy `.mcp.json.example` to `.mcp.json` in this folder. Ask them to paste their endpoint URL
-and their key into it themselves, in their editor. **Never ask them to paste the key into the
-chat, and never type a real key into a file yourself.** `.mcp.json` is ignored by git, so the
-key stays on their machine.
+Claude Desktop takes the same address and the same key, put into the desktop app's own MCP
+settings instead.
 
-**4. Restart.**
-Claude Code reads the connection at startup. Fully quit and reopen it. A reload is not enough.
-On the first launch after that it asks them to approve this project's `.mcp.json`, so tell
-them to expect the prompt and say yes.
-
-**5. Confirm.**
-In the new session, call `list_pages`. A list of their pages means the connection works. If
-the tools are not there at all, the restart did not happen, the approval prompt was declined,
-or the file has a typo.
-
-**If it hangs:** almost always an out of date Node. Ask them to run `node -v`. Below 20.18.1
-needs an update, then a full restart of Claude Code.
-
-### Claude Desktop
-
-Same endpoint, same key, same command. The settings live in the desktop app's own config file
-instead of `.mcp.json`. The reliable way in is the app itself: **Settings > Developer > Edit
-Config**. The file is `claude_desktop_config.json`, normally at
-`~/Library/Application Support/Claude/claude_desktop_config.json` on a Mac and
-`%APPDATA%\Claude\claude_desktop_config.json` on Windows. Paste the same block that is in
-`.mcp.json.example`, then fully quit and reopen the app.
+**The rule for Claude:** if the BeaverForge tools are not available, tell the person those
+three steps and stop. Never ask for their key, never write or edit a configuration file for
+them, and never try to connect by any other means. If the tools are available, carry on.
 
 ## Handy starting points
 
@@ -137,10 +106,8 @@ Config**. The file is `claude_desktop_config.json`, normally at
 
 ## Skills in this folder
 
-`.claude/skills/` holds six recipes. Use them rather than improvising:
+`.claude/skills/` holds five recipes. Use them rather than improvising:
 
-- **connect-my-site** when the BeaverForge tools are missing, or they ask to set up the
-  connection. It checks for an existing connection before it offers to set one up.
 - **set-up-my-brand** when there is no Style Guide yet.
 - **build-a-page** for a new page from a description.
 - **copy-a-design** when they hand you a screenshot, HTML, or a web address.
