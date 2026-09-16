@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "beaverforge": {
+      "command": "npx",
+      "args": [
+        "-y", "mcp-remote@latest",
+        "${BFAI_MCP_URL}",
+        "--header", "Authorization:Bearer ${BFAI_MCP_KEY}",
+        "--transport", "http-only"
+      ]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@latest"]
+    }
+  }
+}

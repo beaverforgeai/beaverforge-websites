@@ -34,8 +34,9 @@ check the result with your own eyes.
    **Pasted or saved HTML.** Read the file they hand you. Then load the plugin's copy
    instructions: they arrive with the connection as the resource
    `beaverforge://html-copy-playbook`. In Claude Code you read it by typing
-   `@beaverforge:beaverforge://html-copy-playbook`, where `beaverforge` is the name the server
-   has in `.mcp.json`. Follow those instructions and build the page with `add_section`.
+   `@beaverforge:beaverforge://html-copy-playbook`, where `beaverforge` is the name your
+   server has; use your own server's name if it differs. Follow those instructions and build
+   the page with `add_section`.
 
 4. **Build what the plan says.** `add_section` one section at a time, in order. Reproduce the
    source's own colours, fonts and spacing. A copy is meant to match the source, so do not

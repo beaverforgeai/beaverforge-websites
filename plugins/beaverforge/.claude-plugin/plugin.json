@@ -1,0 +1,12 @@
+{
+  "name": "beaverforge",
+  "displayName": "BeaverForge AI",
+  "version": "1.0.0",
+  "description": "Build and edit Beaver Builder websites through the BeaverForge AI plugin's MCP tools",
+  "author": {
+    "name": "BeaverForge AI"
+  },
+  "homepage": "https://github.com/beaverforgeai/beaverforge-websites",
+  "repository": "https://github.com/beaverforgeai/beaverforge-websites",
+  "keywords": ["wordpress", "beaver-builder", "website", "design", "beaverforge"]
+}

@@ -68,6 +68,15 @@ either. Seeing it is.
 
 ## Setting up the connection
 
+**Check whether it is already connected before you offer any of this.** When they ask you to
+set up the BeaverForge connection, call `list_pages` first. If it returns a list of their
+pages, the connection already exists: say so in one line, name a couple of the pages so they
+know it is their site, and stop. Do not touch any configuration file and do not ask for a key.
+If it refuses with a reason, such as an inactive licence or a key that is not valid, the
+connection exists and the site is turning it down: pass the reason on and stop, because setting
+it up again will not fix a refusal. Only when there are no BeaverForge tools at all do you go
+on to the steps below. The connect-my-site skill is the full recipe.
+
 Talk the person through this one step at a time and wait after each step.
 
 **1. Switch the server on.**
@@ -83,6 +92,11 @@ laptop"), leave **Expiry** blank unless they want one, press **Create key**. The
 once, so tell them to copy it now. It starts with `bfai_`.
 
 **3. Fill in the connection file.**
+This step is for the cloned folder. If they installed the BeaverForge plugin for Claude Code
+instead, the connection is already declared for them and reads two environment variables they
+set once in their shell profile, `BFAI_MCP_URL` and `BFAI_MCP_KEY`: the connect-my-site skill
+has the exact lines.
+
 Copy `.mcp.json.example` to `.mcp.json` in this folder. Ask them to paste their endpoint URL
 and their key into it themselves, in their editor. **Never ask them to paste the key into the
 chat, and never type a real key into a file yourself.** `.mcp.json` is ignored by git, so the
@@ -123,8 +137,10 @@ Config**. The file is `claude_desktop_config.json`, normally at
 
 ## Skills in this folder
 
-`.claude/skills/` holds five recipes. Use them rather than improvising:
+`.claude/skills/` holds six recipes. Use them rather than improvising:
 
+- **connect-my-site** when the BeaverForge tools are missing, or they ask to set up the
+  connection. It checks for an existing connection before it offers to set one up.
 - **set-up-my-brand** when there is no Style Guide yet.
 - **build-a-page** for a new page from a description.
 - **copy-a-design** when they hand you a screenshot, HTML, or a web address.

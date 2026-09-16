@@ -1,6 +1,10 @@
 # Your real connection file. It holds your key. Never commit it.
 .mcp.json
 
+# The plugin ships its own connection file. It holds no key, only the names of
+# the two environment variables you set on your own machine, so it is committed.
+!plugins/beaverforge/.mcp.json
+
 # Local Claude Code settings and state
 .claude/settings.local.json
 .claude/*.local.*

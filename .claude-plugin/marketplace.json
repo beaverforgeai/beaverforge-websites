@@ -1,0 +1,21 @@
+{
+  "name": "beaverforge-websites",
+  "owner": {
+    "name": "BeaverForge AI",
+    "url": "https://github.com/beaverforgeai"
+  },
+  "description": "Claude Code plugins for building and editing Beaver Builder websites with BeaverForge AI.",
+  "plugins": [
+    {
+      "name": "beaverforge",
+      "source": "./plugins/beaverforge",
+      "description": "Build and edit Beaver Builder websites through the BeaverForge AI plugin's MCP tools",
+      "version": "1.0.0",
+      "author": {
+        "name": "BeaverForge AI"
+      },
+      "homepage": "https://github.com/beaverforgeai/beaverforge-websites",
+      "keywords": ["wordpress", "beaver-builder", "website", "design", "beaverforge"]
+    }
+  ]
+}
