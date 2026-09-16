@@ -1,0 +1,27 @@
+# Your real connection file. It holds your key. Never commit it.
+.mcp.json
+
+# Local Claude Code settings and state
+.claude/settings.local.json
+.claude/*.local.*
+
+# Screenshots and scratch files from checking pages
+screenshots/
+*.png
+*.jpg
+*.jpeg
+*.webp
+
+# Anything you keep private
+notes/
+*.local
+.env
+.env.*
+
+# Operating system and editor clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.idea/
+.vscode/
