@@ -27,8 +27,10 @@ person the three steps under "Connecting your site" below and stop.
 2. **Learn the shape before you write it.** Call `get_module_schema("section")` for the
    section structure, and `get_module_schema("<slug>")` for each module you are about to use.
 3. **Build or edit.** One page at a time, one section at a time.
-4. **Look at the result in a browser.** Open the page, at desktop and phone width, and judge
-   it with your own eyes before you tell anyone it is done.
+4. **Look at the result in a browser, if they let you.** Ask once, the first time there is
+   something to see, whether you may open the page in a browser to check your work; then do what
+   they said for the rest of the session. Yes: look at desktop and phone width after every change.
+   No, or no browser here: say so once, read your work back with the tools, and never ask again.
 
 ## Rules of engagement
 
@@ -54,19 +56,23 @@ person the three steps under "Connecting your site" below and stop.
 
 ## Verification
 
-You have not finished until you have looked. For every page you build or change:
+Looking at what you built is part of the work, especially design work, and it needs the
+person's say-so. So you ask ONCE per session, in one line ("I'd like to open the page in a
+browser to check my work. Is that all right?"), and you take the answer:
 
-1. Open the page URL in a browser at 1280 wide and again at 375 wide.
-2. Look at it. Check the text is readable against its background, nothing overlaps, nothing
-   overflows sideways, images are actually showing, buttons look like buttons, and the spacing
-   between sections is even.
-3. Say what you saw. If something is wrong, fix it through the tools and look again.
+- **Yes.** For every page you build or change from then on, without asking again: open the page
+  URL in a browser at 1280 wide and again at 375 wide; check the text is readable against its
+  background, nothing overlaps, nothing overflows sideways, images are actually showing, buttons
+  look like buttons, and the spacing between sections is even; say what you saw; if something is
+  wrong, fix it through the tools and look again.
+- **No, no answer, or no browser in this session.** Say so once, plainly. Then do not ask again,
+  do not end your messages with "please check it", and do not ask them to look or to send a
+  screenshot. Read each section back with `get_section` after you write it, and say once in your
+  final report that you have not seen the page rendered.
 
-A draft page is not public: only a browser that is logged in to WordPress can see it. So one
-of three things has to happen, and the person chooses which. They log in to WordPress
-themselves in the browser window you open, and you carry on in that window. Or they open the
-preview themselves and send you a screenshot. Or they ask you to publish the page. You never
-type their password and you never go to the login page on their behalf.
+A draft page is not public: only a browser that is logged in to WordPress can see it. So if they
+said yes, they log in themselves in the browser window you open, or they ask you to publish the
+page first. You never type their password and you never go to the login page on their behalf.
 
 If they are editing the page in Beaver Builder right now, `get_connected_page` tells you so,
 and your edits appear on their canvas within seconds rather than on the public address.
